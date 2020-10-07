@@ -20,48 +20,6 @@ In order to initialize tests using tags you will have to run cypress and pass TA
 
 To make things faster and skip cypress opening a browser for every feature file (taking a couple seconds for each one), even the ones we want ignored, we use our own cypress-tags wrapper. It passes all the arguments to cypress, so use it the same way you would use cypress CLI. The only difference is it will first filter out the files we don't care about, based on the tags provided. 
 
-### Examples:
-
-There are a few tagged tests in these files:
-
-[Facebook.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/Facebook.feature)
-```
-@feature-tag
-Feature: The Facebook
-
-  I want to open a social network page
-
-  @tag-to-include
-  Scenario: Opening a social network page
-    Given I open Facebook page
-    Then I see "Facebook" in the title
-
-  @another-tag-to-include @some-other-tag
-  Scenario: Different kind of opening
-    Given I kinda open Facebook page
-    Then I am very happy
-
-```
-
-
-[GitHub.feature](https://github.com/TheBrainFamily/cypress-cucumber-example/blob/master/cypress/integration/socialNetworks/GitHub.feature)
-```
-@feature-tag @github-tag
-Feature: The GitHub
-
-  I want to tweet things
-
-  @tag-to-include
-  Scenario: Opening GitHub
-    Given I open GitHub page
-    Then I see "GitHub" in the title
-
-  @another-tag-to-include
-  Scenario: Opening GitHub again
-    Given I open GitHub page
-    Then I see "GitHub" in the title
-```
-
 ###### Simple Example
   Run ```./node_modules/.bin/cypress-tags run -e TAGS='@feature-tag'``` in this repo. As both `Facebook.feature` and `GitHub.feature` 
   have `@feature-tag` above the feature name, and `Google.feature` has no tags, the result should be: 
