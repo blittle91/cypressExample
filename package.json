@@ -35,5 +35,8 @@
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }
+  },
+  "devDependencies": {
+    "mochawesome-merge": "^4.2.0"
   }
 }
